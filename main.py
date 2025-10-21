@@ -78,19 +78,19 @@ def main():
 
     print("\n Top 5 días más calurosos:")
     for d in top_temp_altas:
-        print(f"{formato_fecha(d['fecha'])} → {d['temperatura']} °C")
+        print(f"{formato_fecha(d['fecha'])} - {d['temperatura']} °C")
 
     print("\n Top 5 días más fríos:")
     for d in top_temp_bajas:
-        print(f"{formato_fecha(d['fecha'])} → {d['temperatura']} °C")
+        print(f"{formato_fecha(d['fecha'])} - {d['temperatura']} °C")
 
     print("\n Top 5 días con más lluvia:")
     for d in top_lluvias_altas:
-        print(f"{formato_fecha(d['fecha'])} → {d['lluvia_mm']} mm")
+        print(f"{formato_fecha(d['fecha'])} - {d['lluvia_mm']} mm")
 
     print("\n Top 5 días con menos lluvia:")
     for d in top_lluvias_bajas:
-        print(f"{formato_fecha(d['fecha'])} → {d['lluvia_mm']} mm")
+        print(f"{formato_fecha(d['fecha'])} - {d['lluvia_mm']} mm")
 
     # Filtros especiales
     dias_calor = filtros(datos, "temperatura", ">", 30)
@@ -100,15 +100,15 @@ def main():
 
     print("\n Días con temperatura > 30°C:")
     for d in dias_calor:
-        print(f"{formato_fecha(d['fecha'])} → {d['temperatura']} °C")
+        print(f"{formato_fecha(d['fecha'])} - {d['temperatura']} °C")
 
     print("\n Días con temperatura <= 20°C:")
     for d in dias_frio:
-        print(f"{formato_fecha(d['fecha'])} → {d['temperatura']} °C")
+        print(f"{formato_fecha(d['fecha'])} - {d['temperatura']} °C")
 
     print("\n Días con lluvia >= 15 mm:")
     for d in dias_lluvia_fuerte:
-        print(f"{formato_fecha(d['fecha'])} → {d['lluvia_mm']} mm")
+        print(f"{formato_fecha(d['fecha'])} - {d['lluvia_mm']} mm")
 
     print("\n Días sin lluvia:")
     if dias_sin_lluvia:
