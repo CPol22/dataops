@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clonar repositorio') {
+            steps {
+                deleteDir()
+                git branch: 'main', url: 'https://github.com/CPol22/dataops.git'
+            }
+        }
+        stage('Preparar entorno') {
+            steps {
+                echo "Instalando dependencias..."
+                bat '"C:\\Python314\\python.exe" -m venv venv'
+                bat 'venv\\Scripts\\activate && pip install -r requirements.txt'
+            }
+        }
+        stage('Ejecutar análisis climático') {
+            steps {
+                echo "Ejecutando script principal..."
+                bat 'venv\\Scripts\\activate && python main.py'
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Análisis climático completado exitosamente.'
+        }
+        failure {
+            echo 'Error en la ejecución del análisis climático.'
+        }
+    }
+}
