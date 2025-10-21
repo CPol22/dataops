@@ -31,6 +31,7 @@ plt.tight_layout()
 # -----------------------------
 # Guardar gráfico
 plt.savefig("reportes/grafico_clima.png")
-print("📊 Gráfico guardado como 'reportes/grafico_clima.png'.")
+print(" Gráfico guardado como 'reportes/grafico_clima.png'.")
 
-print("\n✅ Análisis completado exitosamente.")
+print("\n Análisis completado exitosamente.")
+
