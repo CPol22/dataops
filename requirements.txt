@@ -1,0 +1,15 @@
+# ========================================
+# Dependencias del proyecto DATAOPS - Clima
+# ========================================
+
+# Análisis numérico y estadístico
+numpy==1.26.4
+# Manipulación de datos y generación de CSV
+pandas==2.2.2
+# Visualización de datos (gráficos)
+matplotlib==3.9.2
+# ========================================
+# Nota:
+# Instalar todas las dependencias con:
+#     pip install -r requirements.txt
+# ========================================
