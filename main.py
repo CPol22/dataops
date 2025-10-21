@@ -64,9 +64,9 @@ def main():
     estad_lluvia = calcular_estadisticas(datos, "lluvia_mm")
 
     print("=== ESTADÍSTICAS GENERALES ===")
-    print(f"🌡️ Temperatura promedio: {estad_temp['media']}°C")
+    print(f" Temperatura promedio: {estad_temp['media']}°C")
     print(f"   Máx: {estad_temp['max']}°C | Mín: {estad_temp['min']}°C | Desv: {estad_temp['desviacion']}")
-    print(f"🌧️ Lluvia promedio: {estad_lluvia['media']} mm")
+    print(f" Lluvia promedio: {estad_lluvia['media']} mm")
     print(f"   Máx: {estad_lluvia['max']} mm | Mín: {estad_lluvia['min']} mm | Desv: {estad_lluvia['desviacion']}")
     print("------------------------------------")
 
@@ -76,19 +76,19 @@ def main():
     top_lluvias_altas = top_n(datos, "lluvia_mm", 5, reverse=True)
     top_lluvias_bajas = top_n(datos, "lluvia_mm", 5, reverse=False)
 
-    print("\n🌡️ Top 5 días más calurosos:")
+    print("\n Top 5 días más calurosos:")
     for d in top_temp_altas:
         print(f"{formato_fecha(d['fecha'])} → {d['temperatura']} °C")
 
-    print("\n❄️ Top 5 días más fríos:")
+    print("\n Top 5 días más fríos:")
     for d in top_temp_bajas:
         print(f"{formato_fecha(d['fecha'])} → {d['temperatura']} °C")
 
-    print("\n🌧️ Top 5 días con más lluvia:")
+    print("\n Top 5 días con más lluvia:")
     for d in top_lluvias_altas:
         print(f"{formato_fecha(d['fecha'])} → {d['lluvia_mm']} mm")
 
-    print("\n☀️ Top 5 días con menos lluvia:")
+    print("\n Top 5 días con menos lluvia:")
     for d in top_lluvias_bajas:
         print(f"{formato_fecha(d['fecha'])} → {d['lluvia_mm']} mm")
 
@@ -98,19 +98,19 @@ def main():
     dias_lluvia_fuerte = filtros(datos, "lluvia_mm", ">=", 15)
     dias_sin_lluvia = filtros(datos, "lluvia_mm", "==", 0)
 
-    print("\n🔥 Días con temperatura > 30°C:")
+    print("\n Días con temperatura > 30°C:")
     for d in dias_calor:
         print(f"{formato_fecha(d['fecha'])} → {d['temperatura']} °C")
 
-    print("\n❄️ Días con temperatura <= 20°C:")
+    print("\n Días con temperatura <= 20°C:")
     for d in dias_frio:
         print(f"{formato_fecha(d['fecha'])} → {d['temperatura']} °C")
 
-    print("\n💧 Días con lluvia >= 15 mm:")
+    print("\n Días con lluvia >= 15 mm:")
     for d in dias_lluvia_fuerte:
         print(f"{formato_fecha(d['fecha'])} → {d['lluvia_mm']} mm")
 
-    print("\n☀️ Días sin lluvia:")
+    print("\n Días sin lluvia:")
     if dias_sin_lluvia:
         for d in dias_sin_lluvia:
             print(f"{formato_fecha(d['fecha'])}")
@@ -121,7 +121,7 @@ def main():
     # Creación del reporte CSV
     df = pd.DataFrame(datos)
     df.to_csv("reportes/reporte_clima.csv", index=False, encoding="utf-8-sig")
-    print("\n📄 Reporte CSV guardado en 'reportes/reporte_clima.csv'.")
+    print("\n Reporte CSV guardado en 'reportes/reporte_clima.csv'.")
 
     # -----------------------------
     # Generación del gráfico
@@ -141,10 +141,11 @@ def main():
     plt.tight_layout()
 
     plt.savefig("reportes/grafico_clima.png")
-    print("📊 Gráfico guardado como 'reportes/grafico_clima.png'.")
+    print(" Gráfico guardado como 'reportes/grafico_clima.png'.")
 
-    print("\n✅ Análisis completado exitosamente.")
+    print("\n Análisis completado exitosamente.")
 
 # -----------------------------
 if __name__ == "__main__":
     main()
+
