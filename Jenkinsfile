@@ -7,14 +7,14 @@ pipeline {
     }
 
     stages {
-        stage('Clonando repositorio') {
+        stage('Clonando Repositorio GitHub') {
             steps {
                 deleteDir()
                 git branch: 'main', url: 'https://github.com/CPol22/dataops.git'
             }
         }
 
-        stage('Terraform Init') {
+        stage('Iniciando Terraform') {
             steps {
                 dir('terraform') {
                     echo " Inicializando Terraform..."
@@ -23,7 +23,7 @@ pipeline {
             }
         }
 
-        stage('Terraform Validate') {
+        stage('Validando Configuracion de Terraform') {
             steps {
                 dir('terraform') {
                     echo " Validando configuración de Terraform..."
@@ -32,7 +32,7 @@ pipeline {
             }
         }
 
-        stage('Terraform Plan') {
+        stage('Simulando Infraestructura') {
             steps {
                 dir('terraform') {
                     echo " Simulando infraestructura ..."
@@ -41,7 +41,7 @@ pipeline {
             }
         }
 
-        stage('Terraform Apply') {
+        stage('Aplicando simulacion') {
             steps {
                 dir('terraform') {
                     echo " Aplicando simulación de infraestructura..."
@@ -79,6 +79,7 @@ pipeline {
         }
     }
 }
+
 
 
 
