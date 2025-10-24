@@ -2,7 +2,7 @@ terraform{
     required_providers {
       local ={
         source = "hashicorp/local"
-        version = "~> 1.13.4"
+        version = "~> 2.5.1"
       }
     }
 }
@@ -21,3 +21,4 @@ resource "local_file" "infra" {
   filename = "${var.nombre_servidor}.txt"
   content  = "Infraestructura simulada creada exitosamente. Timestamp: ${timestamp()}"
 }
+
