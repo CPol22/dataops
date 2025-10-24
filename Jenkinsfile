@@ -10,9 +10,9 @@ pipeline {
         stage('Ejecutar Terraform') {
             steps {
                 dir('terraform') {
-                    bat 'terraform init'
-                    bat 'terraform plan'
-                    bat 'terraform validate'
+                    bat '"E:\\PYTHON\\dataops\\terraform\\terraform.exe" init'
+                    bat '"E:\\PYTHON\\dataops\\terraform\\terraform.exe" plan'
+                    bat '"E:\\PYTHON\\dataops\\terraform\\terraform.exe" validate'
                 }
             }
         }
@@ -39,5 +39,6 @@ pipeline {
         }
     }
 }
+
 
 
